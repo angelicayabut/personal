@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Angelica | Personal Space</title>
+    <title>Angelica | Personal Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link
@@ -20,9 +25,16 @@
 
     <style>
 
-        /* =========================
-           GENERAL
-        ========================= */
+        :root {
+            --navy: #061a40;
+            --dark-navy: #04132f;
+            --blue: #4da3ff;
+            --light-blue: #e7f2ff;
+            --background: #f4f8fc;
+            --text: #102347;
+            --muted: #6d7c96;
+            --white: #ffffff;
+        }
 
         html {
             scroll-behavior: smooth;
@@ -30,9 +42,9 @@
 
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f8fc;
-            color: #172b4d;
+            font-family: "DM Sans", sans-serif;
+            color: var(--text);
+            background: var(--background);
         }
 
         /* =========================
@@ -40,28 +52,33 @@
         ========================= */
 
         .navbar {
-            background-color: #061a40;
-            padding: 18px 0;
+            background: rgba(244, 248, 252, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(6, 26, 64, 0.08);
+            padding: 16px 0;
         }
 
         .navbar-brand {
-            color: white !important;
-            font-weight: bold;
-            letter-spacing: 1px;
+            color: var(--navy) !important;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
         }
 
         .navbar-brand span {
-            color: #4da3ff;
+            color: var(--blue);
         }
 
         .nav-link {
-            color: #dce9f8 !important;
-            margin-left: 20px;
+            color: var(--navy) !important;
+            font-size: 0.92rem;
+            font-weight: 600;
+            margin-left: 18px;
             transition: 0.3s;
         }
 
         .nav-link:hover {
-            color: #4da3ff !important;
+            color: var(--blue) !important;
         }
 
         /* =========================
@@ -69,26 +86,39 @@
         ========================= */
 
         .hero {
-            min-height: 92vh;
+            min-height: calc(100vh - 72px);
             display: flex;
             align-items: center;
-            background-color: #061a40;
-            color: white;
             position: relative;
             overflow: hidden;
-        }
 
-        /* Decorative circle */
+            background:
+                radial-gradient(
+                    circle at 82% 25%,
+                    rgba(77, 163, 255, 0.18),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 12% 85%,
+                    rgba(77, 163, 255, 0.10),
+                    transparent 28%
+                ),
+                var(--background);
+
+            padding: 90px 0;
+        }
 
         .hero::before {
             content: "";
             position: absolute;
-            width: 400px;
-            height: 400px;
-            border: 1px solid rgba(77, 163, 255, 0.25);
+            width: 520px;
+            height: 520px;
+
+            border: 1px solid rgba(77, 163, 255, 0.18);
             border-radius: 50%;
-            right: -120px;
-            top: -100px;
+
+            right: -180px;
+            top: -180px;
         }
 
         .hero::after {
@@ -96,10 +126,12 @@
             position: absolute;
             width: 250px;
             height: 250px;
-            border: 1px solid rgba(77, 163, 255, 0.15);
+
+            border: 1px solid rgba(6, 26, 64, 0.08);
             border-radius: 50%;
-            left: -100px;
-            bottom: -80px;
+
+            left: -120px;
+            bottom: -120px;
         }
 
         .hero-content {
@@ -107,45 +139,152 @@
             z-index: 2;
         }
 
-        .small-text {
-            color: #4da3ff;
-            letter-spacing: 3px;
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            color: var(--blue);
+
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            font-size: 14px;
-            font-weight: bold;
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 28px;
+            height: 2px;
+
+            background: var(--blue);
         }
 
         .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 700;
-            margin: 15px 0;
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(3.6rem, 7vw, 6.7rem);
+            line-height: 0.98;
+
+            margin: 18px 0 25px;
+
+            color: var(--navy);
         }
 
         .hero h1 span {
-            color: #4da3ff;
+            color: var(--blue);
         }
 
         .hero p {
-            color: #c9d8ea;
-            font-size: 1.1rem;
-            max-width: 550px;
+            color: var(--muted);
+
+            font-size: 1.08rem;
+            line-height: 1.85;
+
+            max-width: 570px;
         }
 
+        /* =========================
+           BUTTON
+        ========================= */
+
         .btn-main {
-            margin-top: 20px;
-            background-color: #4da3ff;
-            color: #061a40;
+            margin-top: 22px;
+
             border: none;
-            border-radius: 30px;
-            padding: 12px 28px;
-            font-weight: bold;
-            transition: 0.3s;
+            border-radius: 999px;
+
+            padding: 13px 25px;
+
+            background: var(--navy);
+            color: white;
+
+            font-weight: 700;
+
+            box-shadow: 0 12px 28px rgba(6, 26, 64, 0.16);
+
+            transition: 0.25s ease;
         }
 
         .btn-main:hover {
-            background-color: white;
-            color: #061a40;
+            background: var(--blue);
+            color: white;
+
             transform: translateY(-3px);
+        }
+
+        /* =========================
+           PROFILE IMAGE
+        ========================= */
+
+        .photo-wrap {
+            position: relative;
+            max-width: 430px;
+
+            margin: 0 auto;
+        }
+
+        .photo-wrap::before {
+            content: "";
+
+            position: absolute;
+
+            inset: -18px 18px 18px -18px;
+
+            border: 2px solid rgba(77, 163, 255, 0.35);
+
+            border-radius:
+                42% 58% 55% 45% /
+                45% 42% 58% 55%;
+
+            transform: rotate(-7deg);
+        }
+
+        .photo-card {
+            position: relative;
+            z-index: 2;
+
+            background: white;
+
+            padding: 12px;
+
+            border-radius: 28px;
+
+            box-shadow:
+                0 30px 70px rgba(6, 26, 64, 0.17);
+
+            transform: rotate(2deg);
+        }
+
+        .photo-card img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            border-radius: 20px;
+        }
+
+        .photo-tag {
+            position: absolute;
+            z-index: 3;
+
+            left: -25px;
+            bottom: 28px;
+
+            background: var(--navy);
+            color: white;
+
+            padding: 13px 17px;
+
+            border-radius: 14px;
+
+            font-size: 0.82rem;
+            font-weight: 600;
+
+            box-shadow:
+                0 12px 28px rgba(6, 26, 64, 0.2);
         }
 
         /* =========================
@@ -153,22 +292,27 @@
         ========================= */
 
         section {
-            padding: 90px 0;
+            padding: 100px 0;
         }
 
         .section-label {
-            color: #4da3ff;
-            font-size: 13px;
-            letter-spacing: 3px;
+            color: var(--blue);
+
+            font-size: 0.78rem;
+            font-weight: 700;
+
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            font-weight: bold;
         }
 
         .section-title {
-            color: #061a40;
-            font-weight: bold;
-            margin-top: 8px;
-            margin-bottom: 40px;
+            font-family: "Playfair Display", serif;
+
+            color: var(--navy);
+
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+
+            margin: 9px 0 28px;
         }
 
         /* =========================
@@ -176,48 +320,78 @@
         ========================= */
 
         .about-text {
-            font-size: 1.1rem;
+            color: var(--muted);
+
+            font-size: 1.05rem;
             line-height: 1.9;
-            color: #53657d;
         }
 
-        .about-line {
-            width: 60px;
-            height: 4px;
-            background-color: #4da3ff;
-            margin-bottom: 25px;
+        .about-highlight {
+            border-left: 3px solid var(--blue);
+
+            padding-left: 22px;
+
+            margin-top: 30px;
         }
 
         /* =========================
            HOBBIES
         ========================= */
 
+        .hobbies-section {
+            background: #eaf2fb;
+        }
+
         .hobby {
-            background-color: white;
-            padding: 30px;
-            border-left: 3px solid #4da3ff;
             height: 100%;
-            transition: 0.3s;
+
+            background: white;
+
+            border: 1px solid rgba(6, 26, 64, 0.06);
+
+            border-radius: 22px;
+
+            padding: 30px;
+
+            transition: 0.3s ease;
         }
 
         .hobby:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(6, 26, 64, 0.1);
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 20px 45px rgba(6, 26, 64, 0.11);
         }
 
-        .hobby i {
-            font-size: 30px;
-            color: #061a40;
+        .hobby-icon {
+            width: 54px;
+            height: 54px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 16px;
+
+            background: var(--light-blue);
+            color: var(--blue);
+
+            font-size: 1.45rem;
         }
 
         .hobby h4 {
-            color: #061a40;
-            margin-top: 18px;
+            color: var(--navy);
+
+            margin: 22px 0 10px;
+
+            font-weight: 700;
         }
 
         .hobby p {
-            color: #6b7b90;
-            margin-bottom: 0;
+            color: var(--muted);
+
+            line-height: 1.75;
+
+            margin: 0;
         }
 
         /* =========================
@@ -225,26 +399,40 @@
         ========================= */
 
         .skill {
-            margin-bottom: 25px;
+            margin-bottom: 27px;
         }
 
         .skill-name {
             display: flex;
+
             justify-content: space-between;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #061a40;
+
+            margin-bottom: 9px;
+
+            font-weight: 700;
+
+            color: var(--navy);
         }
 
         .progress {
-            height: 7px;
-            background-color: #dce8f5;
-            border-radius: 20px;
+            height: 8px;
+
+            background: #dce7f3;
+
+            border-radius: 999px;
+
+            overflow: hidden;
         }
 
         .progress-bar {
-            background-color: #4da3ff;
-            border-radius: 20px;
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--blue),
+                    #8fc8ff
+                );
+
+            border-radius: 999px;
         }
 
         /* =========================
@@ -252,8 +440,29 @@
         ========================= */
 
         .contact-section {
-            background-color: #061a40;
+            background: var(--navy);
+
             color: white;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .contact-section::after {
+            content: "";
+
+            position: absolute;
+
+            width: 380px;
+            height: 380px;
+
+            border: 1px solid rgba(255, 255, 255, 0.09);
+
+            border-radius: 50%;
+
+            right: -120px;
+            bottom: -220px;
         }
 
         .contact-section .section-title {
@@ -261,14 +470,25 @@
         }
 
         .contact-text {
-            color: #c9d8ea;
-            line-height: 1.8;
+            color: #c6d3e5;
+
+            line-height: 1.85;
+
+            max-width: 620px;
         }
 
         .contact-link {
-            color: #4da3ff;
+            display: inline-block;
+
+            color: var(--blue);
+
             text-decoration: none;
-            font-size: 1.1rem;
+
+            font-size: 1.08rem;
+
+            font-weight: 700;
+
+            margin-top: 6px;
         }
 
         .contact-link:hover {
@@ -280,34 +500,55 @@
         ========================= */
 
         footer {
-            background-color: #04132f;
-            color: #8da3bd;
-            padding: 25px 0;
-            font-size: 14px;
+            background: var(--dark-navy);
+
+            color: #8e9db5;
+
+            padding: 22px 0;
+
+            font-size: 0.85rem;
         }
 
         /* =========================
            RESPONSIVE
         ========================= */
 
-        @media (max-width: 768px) {
-
-            .hero h1 {
-                font-size: 3rem;
-            }
+        @media (max-width: 991px) {
 
             .hero {
-                min-height: 85vh;
+                padding: 70px 0;
+            }
+
+            .photo-wrap {
+                margin-top: 55px;
+
+                max-width: 360px;
             }
 
             .nav-link {
                 margin-left: 0;
+
+                padding: 9px 0 !important;
+            }
+        }
+
+        @media (max-width: 575px) {
+
+            section {
+                padding: 75px 0;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .photo-tag {
+                left: -8px;
             }
         }
 
     </style>
 </head>
-
 
 <body>
 
@@ -324,13 +565,12 @@
         </a>
 
         <button
-            class="navbar-toggler bg-light"
+            class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#menu">
-
+            data-bs-target="#menu"
+        >
             <span class="navbar-toggler-icon"></span>
-
         </button>
 
         <div class="collapse navbar-collapse" id="menu">
@@ -382,13 +622,13 @@
 
 <section class="hero" id="home">
 
-    <div class="container hero-content">
+    <div class="container">
 
-        <div class="row">
+        <div class="row align-items-center g-5">
 
-            <div class="col-lg-8">
+            <div class="col-lg-7">
 
-                <div class="small-text">
+                <div class="eyebrow">
                     Welcome to my space
                 </div>
 
@@ -403,9 +643,40 @@
                 </p>
 
                 <a href="#about" class="btn btn-main">
+
                     Discover More
+
                     <i class="bi bi-arrow-down ms-2"></i>
+
                 </a>
+
+            </div>
+
+
+            <!-- PROFILE IMAGE -->
+
+            <div class="col-lg-5">
+
+                <div class="photo-wrap">
+
+                    <div class="photo-card">
+
+                        <img
+                            src="YOUR_IMAGE_HERE.jpg"
+                            alt="Angelica portrait"
+                        >
+
+                    </div>
+
+                    <div class="photo-tag">
+
+                        <i class="bi bi-stars me-2"></i>
+
+                        Student • Creator • Learner
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -426,7 +697,7 @@
 
         <div class="row justify-content-center">
 
-            <div class="col-lg-8">
+            <div class="col-lg-9">
 
                 <div class="section-label">
                     01 — About
@@ -436,21 +707,27 @@
                     A little about me
                 </h2>
 
-                <div class="about-line"></div>
+                <div class="about-highlight">
 
-                <p class="about-text">
-                    Hello! I'm Angelica, a student interested in
-                    Information Technology and web development.
-                    I enjoy exploring technology and learning
-                    new skills that can help me grow.
-                </p>
+                    <p class="about-text mb-3">
 
-                <p class="about-text">
-                    I believe that every project is an opportunity
-                    to learn something new. My goal is to continue
-                    improving my skills and create meaningful
-                    digital experiences.
-                </p>
+                        Hello! I'm Angelica, a student interested
+                        in Information Technology and web development.
+                        I enjoy exploring technology and learning
+                        new skills that can help me grow.
+
+                    </p>
+
+                    <p class="about-text mb-0">
+
+                        I believe that every project is an opportunity
+                        to learn something new. My goal is to continue
+                        improving my skills and create meaningful
+                        digital experiences.
+
+                    </p>
+
+                </div>
 
             </div>
 
@@ -465,7 +742,7 @@
      HOBBIES
 ========================= -->
 
-<section id="hobbies" class="bg-light">
+<section id="hobbies" class="hobbies-section">
 
     <div class="container">
 
@@ -479,13 +756,21 @@
 
         <div class="row g-4">
 
+            <!-- GAMING -->
+
             <div class="col-md-4">
 
                 <div class="hobby">
 
-                    <i class="bi bi-controller"></i>
+                    <div class="hobby-icon">
 
-                    <h4>Gaming</h4>
+                        <i class="bi bi-controller"></i>
+
+                    </div>
+
+                    <h4>
+                        Gaming
+                    </h4>
 
                     <p>
                         Playing games helps me relax and
@@ -497,13 +782,21 @@
             </div>
 
 
+            <!-- MUSIC -->
+
             <div class="col-md-4">
 
                 <div class="hobby">
 
-                    <i class="bi bi-music-note-beamed"></i>
+                    <div class="hobby-icon">
 
-                    <h4>Music</h4>
+                        <i class="bi bi-music-note-beamed"></i>
+
+                    </div>
+
+                    <h4>
+                        Music
+                    </h4>
 
                     <p>
                         I enjoy listening to music while studying,
@@ -515,13 +808,21 @@
             </div>
 
 
+            <!-- TECHNOLOGY -->
+
             <div class="col-md-4">
 
                 <div class="hobby">
 
-                    <i class="bi bi-laptop"></i>
+                    <div class="hobby-icon">
 
-                    <h4>Technology</h4>
+                        <i class="bi bi-laptop"></i>
+
+                    </div>
+
+                    <h4>
+                        Technology
+                    </h4>
 
                     <p>
                         I enjoy discovering new technologies
@@ -547,9 +848,9 @@
 
     <div class="container">
 
-        <div class="row">
+        <div class="row align-items-center">
 
-            <div class="col-lg-5">
+            <div class="col-lg-5 mb-5 mb-lg-0">
 
                 <div class="section-label">
                     03 — Skills
@@ -560,8 +861,10 @@
                 </h2>
 
                 <p class="about-text">
-                    These are some of the technologies and
-                    skills I am currently developing.
+
+                    These are some of the technologies
+                    and skills I am currently developing.
+
                 </p>
 
             </div>
@@ -569,69 +872,114 @@
 
             <div class="col-lg-6 offset-lg-1">
 
+
+                <!-- HTML -->
+
                 <div class="skill">
 
                     <div class="skill-name">
-                        <span>HTML</span>
-                        <span>85%</span>
+
+                        <span>
+                            HTML
+                        </span>
+
+                        <span>
+                            85%
+                        </span>
+
                     </div>
 
                     <div class="progress">
+
                         <div
                             class="progress-bar"
-                            style="width: 85%;">
-                        </div>
+                            style="width:85%"
+                        ></div>
+
                     </div>
 
                 </div>
 
 
+                <!-- CSS -->
+
                 <div class="skill">
 
                     <div class="skill-name">
-                        <span>CSS</span>
-                        <span>75%</span>
+
+                        <span>
+                            CSS
+                        </span>
+
+                        <span>
+                            75%
+                        </span>
+
                     </div>
 
                     <div class="progress">
+
                         <div
                             class="progress-bar"
-                            style="width: 75%;">
-                        </div>
+                            style="width:75%"
+                        ></div>
+
                     </div>
 
                 </div>
 
 
+                <!-- BOOTSTRAP -->
+
                 <div class="skill">
 
                     <div class="skill-name">
-                        <span>Bootstrap</span>
-                        <span>80%</span>
+
+                        <span>
+                            Bootstrap
+                        </span>
+
+                        <span>
+                            80%
+                        </span>
+
                     </div>
 
                     <div class="progress">
+
                         <div
                             class="progress-bar"
-                            style="width: 80%;">
-                        </div>
+                            style="width:80%"
+                        ></div>
+
                     </div>
 
                 </div>
 
 
+                <!-- JAVASCRIPT -->
+
                 <div class="skill">
 
                     <div class="skill-name">
-                        <span>JavaScript</span>
-                        <span>65%</span>
+
+                        <span>
+                            JavaScript
+                        </span>
+
+                        <span>
+                            65%
+                        </span>
+
                     </div>
 
                     <div class="progress">
+
                         <div
                             class="progress-bar"
-                            style="width: 65%;">
-                        </div>
+                            style="width:65%"
+                        ></div>
+
                     </div>
 
                 </div>
@@ -651,11 +999,14 @@
 
 <section id="contact" class="contact-section">
 
-    <div class="container">
+    <div
+        class="container position-relative"
+        style="z-index:2"
+    >
 
         <div class="row align-items-center">
 
-            <div class="col-lg-7">
+            <div class="col-lg-8">
 
                 <div class="section-label">
                     04 — Contact
@@ -666,29 +1017,34 @@
                 </h2>
 
                 <p class="contact-text">
+
                     Thank you for visiting my personal space.
                     Feel free to reach out if you would like
                     to connect or learn more about me.
+
                 </p>
 
                 <a
                     href="mailto:yourname@email.com"
-                    class="contact-link">
-
+                    class="contact-link"
+                >
                     yourname@email.com
-
                 </a>
 
             </div>
 
 
-            <div class="col-lg-5 text-lg-end mt-4 mt-lg-0">
+            <div
+                class="col-lg-4 text-lg-end mt-4 mt-lg-0"
+            >
 
                 <a
                     href="#home"
-                    class="btn btn-main">
+                    class="btn btn-main"
+                >
 
                     Back to top
+
                     <i class="bi bi-arrow-up ms-2"></i>
 
                 </a>
@@ -708,20 +1064,18 @@
 
 <footer>
 
-    <div class="container">
+    <div
+        class="container d-flex justify-content-between
+               align-items-center flex-wrap gap-2"
+    >
 
-        <div class="d-flex justify-content-between
-                    align-items-center flex-wrap">
+        <span>
+            © 2026 Angelica
+        </span>
 
-            <span>
-                © 2026 Angelica
-            </span>
-
-            <span>
-                Built with Bootstrap
-            </span>
-
-        </div>
+        <span>
+            Built with Bootstrap
+        </span>
 
     </div>
 
@@ -731,8 +1085,8 @@
 <!-- Bootstrap JavaScript -->
 
 <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
 
 </body>
 </html>
