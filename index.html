@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Personal Space</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #6f42c1, #0d6efd);
+            color: white;
+            padding: 100px 20px;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: #212529;
+            color: white;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">My Space</a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hobbies">Hobbies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Hero Section -->
+<section id="home" class="hero text-center">
+    <div class="container">
+
+        <img
+            src="https://via.placeholder.com/180"
+            alt="Profile Picture"
+            class="profile-img mb-4"
+        >
+
+        <h1 class="display-4 fw-bold">Hello, I'm Angelica!</h1>
+
+        <p class="lead">
+            Welcome to my personal space.
+        </p>
+
+        <a href="#about" class="btn btn-light btn-lg mt-3">
+            Get to Know Me
+        </a>
+
+    </div>
+</section>
+
+
+<!-- About Section -->
+<section id="about" class="py-5">
+    <div class="container">
+
+        <h2 class="text-center section-title">About Me</h2>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+
+                <div class="card shadow-sm p-4">
+                    <p class="text-center mb-0">
+                        Hi! I'm a student who enjoys learning new things,
+                        exploring technology, and developing my skills.
+                        This website is my personal space where I can
+                        share a little bit about myself, my interests,
+                        hobbies, and goals.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Hobbies Section -->
+<section id="hobbies" class="py-5 bg-white">
+    <div class="container">
+
+        <h2 class="text-center section-title">My Hobbies</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 p-4 text-center">
+                    <div class="display-4 mb-3">🎮</div>
+                    <h4>Gaming</h4>
+                    <p>
+                        I enjoy playing games during my free time
+                        and discovering new games.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 p-4 text-center">
+                    <div class="display-4 mb-3">🎵</div>
+                    <h4>Music</h4>
+                    <p>
+                        Listening to music helps me relax and
+                        stay motivated.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 p-4 text-center">
+                    <div class="display-4 mb-3">📚</div>
+                    <h4>Learning</h4>
+                    <p>
+                        I enjoy learning new topics and improving
+                        my knowledge and skills.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Skills Section -->
+<section id="skills" class="py-5">
+    <div class="container">
+
+        <h2 class="text-center section-title">My Skills</h2>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+
+                <p class="mb-1">HTML</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-danger" style="width: 85%;">
+                        85%
+                    </div>
+                </div>
+
+                <p class="mb-1">CSS</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-primary" style="width: 75%;">
+                        75%
+                    </div>
+                </div>
+
+                <p class="mb-1">Bootstrap</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-purple"
+                         style="width: 80%; background-color: #6f42c1;">
+                        80%
+                    </div>
+                </div>
+
+                <p class="mb-1">JavaScript</p>
+                <div class="progress">
+                    <div class="progress-bar bg-warning text-dark"
+                         style="width: 65%;">
+                        65%
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact" class="py-5 bg-white">
+    <div class="container">
+
+        <h2 class="text-center section-title">Contact Me</h2>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                <form>
+
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Enter your name"
+                        >
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            placeholder="Enter your email"
+                        >
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Message</label>
+                        <textarea
+                            class="form-control"
+                            rows="5"
+                            placeholder="Write your message">
+                        </textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="container">
+        <p class="mb-0">
+            © 2026 My Personal Space | Made with Bootstrap
+        </p>
+    </div>
+</footer>
+
+
+<!-- Bootstrap JavaScript -->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>
+```
